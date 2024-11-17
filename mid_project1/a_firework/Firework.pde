@@ -49,7 +49,7 @@ class Firework {
     } else if (explosionTime > 0) {
       //여기가 불꽃이 터지는 모양.
       noStroke();
-      fill(random(230,255), random(200, 255), random(120, 255), opacity);
+      fill(random(210,250), random(160, 230), random(10,120), opacity);
       for (int index = 0; index < 40; index++) {
         float angle = random(TWO_PI);
         float rad = random(height * 0.01, maxRad);

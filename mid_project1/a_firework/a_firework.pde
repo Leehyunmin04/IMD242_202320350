@@ -53,7 +53,7 @@ void draw() {
 
 
   if (flashEffect) {
-    background(250, 250, 200, 60);//이건 불꽃이 터져서 화면이 번쩍일때의 배경 색
+    background(190, 180, 160, 5);//이건 불꽃이 터져서 화면이 번쩍일때의 배경 색
     flashEffect = false;
   }
 
