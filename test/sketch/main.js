@@ -12,6 +12,7 @@ const videoW = 640;
 const videoH = 480;
 let hands = [];
 let snowflakeImg, icecubeImg;
+let topImage;
 
 // **추가: 파티클 관련 변수**
 let particles = [];
@@ -71,6 +72,7 @@ function preload() {
   });
   snowflakeImg = loadImage('assets/ic-1.png');
   icecubeImg = loadImage('assets/snow-1.png');
+  topImage = loadImage('assets/screen.png');
 }
 
 function setup() {
@@ -98,10 +100,11 @@ function setup() {
 function init() {}
 
 function draw() {
-  tint(140, 160, 200);
+  tint(170, 190, 230);
   image(video, 0, 0, width, height);
   noTint();
 
+  image(topImage, 0, 0, width, height);
   const scaleX = width / videoW;
   const scaleY = height / videoH;
 
@@ -112,6 +115,8 @@ function draw() {
     // 손바닥 영역에서 파티클 생성 **수정**
     const palm = hand.keypoints[9]; // 손바닥 중심
     const palmBase = hand.keypoints[0]; // 손목(손바닥 아래쪽)
+    const handTop = hand.keypoints[12];
+    // const bandBottom = hand.keypoints[0];
 
     // 손바닥 영역 정의
     const minX = min(palm.x, palmBase.x) * scaleX;
