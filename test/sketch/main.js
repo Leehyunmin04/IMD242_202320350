@@ -124,13 +124,10 @@ function draw() {
     const minY = min(palm.y, palmBase.y) * scaleY;
     const maxY = max(palm.y, palmBase.y) * scaleY;
 
-    // 손바닥 전체 영역에서 무작위 위치에 파티클 생성
     for (let j = 0; j < 10; j++) {
-      // 파티클 개수를 더 늘림
       const x = random(minX, maxX);
       const y = random(minY, maxY);
 
-      // 두 손의 거리에 따라 다른 모양의 파티클 생성
       if (hands.length === 2) {
         const otherPalm = hands[(i + 1) % 2].keypoints[9];
         const otherX = otherPalm.x * scaleX;
@@ -139,14 +136,13 @@ function draw() {
 
         if (distance < 500) {
           fill(190, 220, 255, 200);
-          particles.push(new Particle(x, y, 'rect')); // 네모난 파티클
+          particles.push(new Particle(x, y, 'rect')); 
           image(snowflakeImg, this.x, this.y, this.size, this.size);
         } else {
           fill(255, 255, 255, 200);
-          particles.push(new Particle(x, y, 'circle')); // 동그란 파티클
+          particles.push(new Particle(x, y, 'circle'));
         }
       } else {
-        // 한 손만 보일 때는 동그란 파티클 생성
         particles.push(new Particle(x, y, 'circle'));
       }
     }
@@ -157,7 +153,7 @@ function draw() {
     particles[i].update();
     particles[i].display();
     if (particles[i].isDead()) {
-      particles.splice(i, 1); // 수명이 다한 파티클 제거
+      particles.splice(i, 1);
     }
   }
 }
